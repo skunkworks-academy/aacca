@@ -2,7 +2,7 @@
 
 A Docusaurus-powered review and execution portal for **Alberto Antonio Carvalho Cabral Adao**.
 
-- **Public site:** https://skunkworks-academy.github.io/aacca/
+- **Public site:** aacca.skunkworksacademy.com
 - **Pathway:** Digital Operations, Process Optimisation and PropTech Transformation
 - **Mentor and facilitator:** Raydo Matthee
 - **Review cycle:** 30, 60 and 90 days, then quarterly
