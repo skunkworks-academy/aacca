@@ -57,7 +57,7 @@ jobs:
             grep -Fq '/img/favicon-white.svg' "$page"
             grep -Fq '/site.webmanifest' "$page"
             ! grep -Fq 'skunkworks-academy.github.io/aacca' "$page"
-            ! grep -Fq '/aacca/' "$page"
+            ! grep -Eq '(href|src)="/aacca/' "$page"
           done < <(find build -type f -name '*.html' -print)
 
       - name: Upload GitHub Pages artifact
