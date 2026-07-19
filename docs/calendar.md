@@ -11,12 +11,12 @@ description: Download or subscribe to Alberto's 12-week timetable in Google Cale
 
 ## Calendar actions
 
-<div className="buttonRow"><a className="button button--primary button--lg" href="/aacca/alberto-idr-12-week-calendar.ics" download>Download calendar (.ics)</a><a className="button button--secondary button--lg" href="webcal://skunkworks-academy.github.io/aacca/alberto-idr-12-week-calendar.ics">Subscribe with calendar app</a></div>
+<div className="buttonRow"><a className="button button--primary button--lg" href="/alberto-idr-12-week-calendar.ics" download>Download calendar (.ics)</a><a className="button button--secondary button--lg" href="webcal://aacca.skunkworksacademy.com/alberto-idr-12-week-calendar.ics">Subscribe with calendar app</a></div>
 
 **Calendar URL**
 
 ```text
-https://skunkworks-academy.github.io/aacca/alberto-idr-12-week-calendar.ics
+https://aacca.skunkworksacademy.com/alberto-idr-12-week-calendar.ics
 ```
 
 ## Google Calendar
