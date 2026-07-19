@@ -24,21 +24,42 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm install --no-audit --no-fund --silent
 
-      - name: Validate source
+      - name: Validate source and release controls
         run: npm run validate
 
       - name: Build Docusaurus
         run: npm run build
 
+      - name: Verify deployable output
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s build/index.html
+          test -s build/CNAME
+          grep -Fxq 'aacca.skunkworksacademy.com' build/CNAME
+          test -s build/img/favicon-black.svg
+          test -s build/img/favicon-white.svg
+          test -s build/site.webmanifest
+          test -s build/idr/credentials.html || test -s build/idr/credentials/index.html
+          test -s build/idr/calendar.html || test -s build/idr/calendar/index.html
+          test -s build/alberto-idr-12-week-calendar.ics
+          grep -Fq 'aacca.skunkworksacademy.com' build/index.html
+          grep -Fq '/img/favicon-black.svg' build/index.html
+          grep -Fq '/img/favicon-white.svg' build/index.html
+
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: build
+          include-hidden-files: true
 
   deploy:
     needs: build
