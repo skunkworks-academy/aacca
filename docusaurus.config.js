@@ -1,9 +1,13 @@
+const siteUrl = 'https://aacca.skunkworksacademy.com';
+const lightIcon = 'img/favicon-black.svg';
+const darkIcon = 'img/favicon-white.svg';
+
 const config = {
   title: 'Alberto Adao IDR',
   tagline: 'Digital Operations, Process Optimisation and PropTech Transformation',
-  favicon: 'img/favicon.svg',
-  url: 'https://skunkworks-academy.github.io',
-  baseUrl: '/aacca/',
+  favicon: lightIcon,
+  url: siteUrl,
+  baseUrl: '/',
   organizationName: 'skunkworks-academy',
   projectName: 'aacca',
   trailingSlash: false,
@@ -16,6 +20,46 @@ const config = {
   },
   themes: ['@docusaurus/theme-mermaid'],
   headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/img/favicon-black.svg',
+        media: '(prefers-color-scheme: light)',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/img/favicon-white.svg',
+        media: '(prefers-color-scheme: dark)',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'shortcut icon',
+        type: 'image/svg+xml',
+        href: '/img/favicon-black.svg',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        href: '/img/favicon-black.svg',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'manifest',
+        href: '/site.webmanifest',
+      },
+    },
     {
       tagName: 'meta',
       attributes: {
@@ -45,7 +89,7 @@ const config = {
           '@type': 'Person',
           name: 'Raydo Matthee',
         },
-        url: 'https://skunkworks-academy.github.io/aacca/',
+        url: `${siteUrl}/`,
       }),
     },
   ],
@@ -69,7 +113,7 @@ const config = {
     ],
   ],
   themeConfig: {
-    image: 'img/favicon.svg',
+    image: lightIcon,
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
@@ -80,8 +124,8 @@ const config = {
       hideOnScroll: false,
       logo: {
         alt: 'Skunkworks Academy',
-        src: 'img/favicon.svg',
-        srcDark: 'img/favicon.svg',
+        src: lightIcon,
+        srcDark: darkIcon,
         width: 34,
         height: 34,
       },
@@ -163,7 +207,10 @@ const config = {
         property: 'og:description',
         content: 'A structured 12-month development roadmap with a 12-week credential sprint, labs, assignments and KPI tracking.',
       },
-      {property: 'og:url', content: 'https://skunkworks-academy.github.io/aacca/'},
+      {property: 'og:url', content: `${siteUrl}/`},
+      {property: 'og:image', content: `${siteUrl}/img/favicon-black.svg`},
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:image', content: `${siteUrl}/img/favicon-black.svg`},
     ],
   },
 };
