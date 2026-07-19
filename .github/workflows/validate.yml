@@ -11,34 +11,24 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund --silent
-
-      - name: Validate source, privacy and learning gates
-        run: npm run validate
-
-      - name: Build production site
+      - name: Fetch pull-request branch
         shell: bash
         run: |
-          set +e
-          npm run build > docusaurus-build.log 2>&1
-          status=$?
-          if [ "$status" -ne 0 ]; then
-            echo "Docusaurus production build failed. Relevant output:"
-            tail -n 120 docusaurus-build.log
-            exit "$status"
-          fi
-          cat docusaurus-build.log
+          set -euo pipefail
+          branch="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          git clone --quiet --depth 1 --branch "$branch" "https://github.com/${GITHUB_REPOSITORY}.git" source
+
+      - name: Install, validate and build
+        working-directory: source
+        shell: bash
+        run: |
+          set -o pipefail
+          npm install --no-audit --no-fund --silent
+          npm run validate
+          npm run build 2>&1 | tee docusaurus-build.log
 
       - name: Verify production output
+        working-directory: source
         run: |
           test -s build/index.html
           test -s build/idr/credentials/index.html
