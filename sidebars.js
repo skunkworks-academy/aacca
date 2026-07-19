@@ -14,6 +14,7 @@ const sidebars = {
     'kpis',
     'mentor',
     'governance',
+    'domain-and-release',
     'references',
   ],
 };

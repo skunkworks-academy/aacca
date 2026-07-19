@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+
+# Alberto's IDR site is a private-review experience published through a public static host.
+# Do not index, cache or archive this content.

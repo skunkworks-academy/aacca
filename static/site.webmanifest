@@ -1,0 +1,18 @@
+{
+  "name": "Alberto Adao Individual Development Roadmap",
+  "short_name": "Alberto IDR",
+  "description": "Digital operations, process optimisation and PropTech transformation development portal.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f62fe",
+  "icons": [
+    {
+      "src": "/img/favicon-black.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
