@@ -45,10 +45,34 @@ if (errors.length === 0) {
   requireText('.github/workflows/deploy-pages.yml', 'actions/upload-pages-artifact@v4', 'current Pages artifact action');
 }
 
+const rootsToScan = ['docs', 'src', 'static', 'docusaurus.config.js', 'README.md'];
+const textExtensions = new Set(['.js', '.jsx', '.json', '.md', '.mdx', '.txt', '.yml', '.yaml', '.html', '.css', '.svg', '']);
+const stalePatterns = [
+  ['skunkworks-academy.github.io/aacca', 'legacy GitHub Pages domain'],
+  ['/aacca/', 'legacy project base path'],
+];
+
+function scan(target) {
+  const full = path.join(root, target);
+  if (!fs.existsSync(full)) return;
+  const stat = fs.statSync(full);
+  if (stat.isDirectory()) {
+    for (const entry of fs.readdirSync(full)) scan(path.join(target, entry));
+    return;
+  }
+  if (!textExtensions.has(path.extname(target).toLowerCase())) return;
+  const content = fs.readFileSync(full, 'utf8');
+  for (const [pattern, label] of stalePatterns) {
+    if (content.includes(pattern)) errors.push(`${target}: contains ${label} (${pattern})`);
+  }
+}
+
+for (const target of rootsToScan) scan(target);
+
 if (errors.length) {
   console.error('Enhanced release validation failed.');
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log('Enhanced release validation passed: custom domain, root routing, adaptive favicons, manifest and Pages deployment are configured.');
+console.log('Enhanced release validation passed: custom domain, root routing, adaptive favicons, manifest and Pages deployment are configured with no stale project-domain links.');
