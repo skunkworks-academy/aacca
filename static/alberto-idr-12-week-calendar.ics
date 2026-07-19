@@ -1,0 +1,115 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Skunkworks Academy//Alberto Adao IDR//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Alberto IDR - 12 Week Sprint
+X-WR-TIMEZONE:Africa/Johannesburg
+BEGIN:VTIMEZONE
+TZID:Africa/Johannesburg
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0200
+TZNAME:SAST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:alberto-idr-learning@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260720T180000
+DTEND;TZID=Africa/Johannesburg:20260720T190000
+RRULE:FREQ=WEEKLY;COUNT=12
+SUMMARY:Alberto IDR - Structured learning
+DESCRIPTION:Credential-aligned learning and knowledge checks. Mentor/facilitator: Raydo Matthee.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Alberto IDR structured learning
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-lab@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260721T180000
+DTEND;TZID=Africa/Johannesburg:20260721T193000
+RRULE:FREQ=WEEKLY;COUNT=12
+SUMMARY:Alberto IDR - Guided lab
+DESCRIPTION:Cloud, data, automation, analytics or governance lab.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Alberto IDR guided lab
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-build@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260723T180000
+DTEND;TZID=Africa/Johannesburg:20260723T193000
+RRULE:FREQ=WEEKLY;COUNT=12
+SUMMARY:Alberto IDR - Applied build work
+DESCRIPTION:Process mapping, dataset, dashboard or workflow build.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Alberto IDR applied build work
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-documentation@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260724T170000
+DTEND;TZID=Africa/Johannesburg:20260724T180000
+RRULE:FREQ=WEEKLY;COUNT=12
+SUMMARY:Alberto IDR - Documentation and evidence
+DESCRIPTION:Decision log, risk update, README, evidence and reflection.
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-assignment@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260725T090000
+DTEND;TZID=Africa/Johannesburg:20260725T110000
+RRULE:FREQ=WEEKLY;COUNT=12
+SUMMARY:Alberto IDR - Assignment and portfolio
+DESCRIPTION:Complete the weekly assessed deliverable and portfolio artefact.
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-mentor@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260729T180000
+DTEND;TZID=Africa/Johannesburg:20260729T184500
+RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=6
+SUMMARY:Alberto IDR - Mentor review with Raydo Matthee
+DESCRIPTION:Review evidence, KPIs, risks, blockers, decisions and next actions.
+BEGIN:VALARM
+TRIGGER:-PT60M
+ACTION:DISPLAY
+DESCRIPTION:Mentor review with Raydo Matthee
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-review-30@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260819T180000
+DTEND;TZID=Africa/Johannesburg:20260819T190000
+SUMMARY:Alberto IDR - 30-day review
+DESCRIPTION:Review baseline, learning routine, process maps, systems and cloud evidence.
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-review-60@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20260918T170000
+DTEND;TZID=Africa/Johannesburg:20260918T180000
+SUMMARY:Alberto IDR - 60-day review
+DESCRIPTION:Review data baseline, app, workflow, dashboard and process-mining evidence.
+END:VEVENT
+BEGIN:VEVENT
+UID:alberto-idr-review-90@skunkworksacademy.com
+DTSTAMP:20260719T120000Z
+DTSTART;TZID=Africa/Johannesburg:20261016T170000
+DTEND;TZID=Africa/Johannesburg:20261016T180000
+SUMMARY:Alberto IDR - 90-day capstone review
+DESCRIPTION:Review pilot readiness, KPI evidence, governance and go/no-go decision.
+END:VEVENT
+END:VCALENDAR
