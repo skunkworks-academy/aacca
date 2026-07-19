@@ -1,0 +1,4 @@
+Alberto Adao IDR
+Release: 1.1.0
+Canonical domain: https://aacca.skunkworksacademy.com/
+Deployment: GitHub Pages via GitHub Actions
