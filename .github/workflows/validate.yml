@@ -17,16 +17,26 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund
+        run: npm install --no-audit --no-fund --silent
 
       - name: Validate source, privacy and learning gates
         run: npm run validate
 
       - name: Build production site
-        run: npm run build
+        shell: bash
+        run: |
+          set +e
+          npm run build > docusaurus-build.log 2>&1
+          status=$?
+          if [ "$status" -ne 0 ]; then
+            echo "Docusaurus production build failed. Relevant output:"
+            tail -n 120 docusaurus-build.log
+            exit "$status"
+          fi
+          cat docusaurus-build.log
 
       - name: Verify production output
         run: |
