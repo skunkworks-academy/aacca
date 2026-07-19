@@ -1,0 +1,36 @@
+name: Validate Alberto IDR
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch pull-request branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+          git clone --quiet --depth 1 --branch "$branch" "https://github.com/${GITHUB_REPOSITORY}.git" source
+
+      - name: Install, validate and build
+        working-directory: source
+        shell: bash
+        run: |
+          set -o pipefail
+          npm install --no-audit --no-fund --silent
+          npm run validate
+          npm run build 2>&1 | tee docusaurus-build.log
+
+      - name: Verify production output
+        working-directory: source
+        run: |
+          test -s build/index.html
+          test -s build/idr/credentials/index.html
+          test -s build/idr/calendar/index.html
+          test -s build/alberto-idr-12-week-calendar.ics
