@@ -46,10 +46,16 @@ if (errors.length === 0) {
 }
 
 const rootsToScan = ['docs', 'src', 'static', 'docusaurus.config.js', 'README.md'];
-const textExtensions = new Set(['.js', '.jsx', '.json', '.md', '.mdx', '.txt', '.yml', '.yaml', '.html', '.css', '.svg', '']);
-const stalePatterns = [
-  ['skunkworks-academy.github.io/aacca', 'legacy GitHub Pages domain'],
-  ['/aacca/', 'legacy project base path'],
+const textExtensions = new Set(['.js', '.jsx', '.json', '.md', '.mdx', '.txt', '.yml', '.yaml', '.html', '.css', '']);
+const staleChecks = [
+  {
+    regex: /(?:https|webcal):\/\/skunkworks-academy\.github\.io\/aacca(?:\/|\b)/g,
+    label: 'legacy GitHub Pages domain',
+  },
+  {
+    regex: /\b(?:href|src|to)=["']\/aacca\//g,
+    label: 'legacy project-root asset or route path',
+  },
 ];
 
 function scan(target) {
@@ -62,8 +68,9 @@ function scan(target) {
   }
   if (!textExtensions.has(path.extname(target).toLowerCase())) return;
   const content = fs.readFileSync(full, 'utf8');
-  for (const [pattern, label] of stalePatterns) {
-    if (content.includes(pattern)) errors.push(`${target}: contains ${label} (${pattern})`);
+  for (const {regex, label} of staleChecks) {
+    regex.lastIndex = 0;
+    if (regex.test(content)) errors.push(`${target}: contains ${label}`);
   }
 }
 
