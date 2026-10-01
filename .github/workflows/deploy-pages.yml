@@ -60,6 +60,10 @@ jobs:
             ! grep -Eq '(href|src)="/aacca/' "$page"
           done < <(find build -type f -name '*.html' -print)
 
+      - name: Install and verify Academy search favicons
+        uses: skunkworks-academy/www/.github/actions/search-favicons@070f621875577a66ae43cdffa7e9d20c65efdc71
+        with:
+          artifact-path: "build"
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
