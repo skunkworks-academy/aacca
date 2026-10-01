@@ -5,7 +5,7 @@ const darkIcon = 'img/favicon-white.svg';
 const config = {
   title: 'Alberto Adao IDR',
   tagline: 'Digital Operations, Process Optimisation and PropTech Transformation',
-  favicon: lightIcon,
+  favicon: 'images/favicon-search.png',
   url: siteUrl,
   baseUrl: '/',
   organizationName: 'skunkworks-academy',
@@ -30,8 +30,8 @@ const config = {
       tagName: 'link',
       attributes: {
         rel: 'icon',
-        type: 'image/svg+xml',
-        href: '/img/favicon-black.svg',
+        type: 'image/png',
+        href: 'https://www.skunkworksacademy.com/images/favicon-search.png',
         media: '(prefers-color-scheme: light)',
       },
     },
@@ -39,8 +39,8 @@ const config = {
       tagName: 'link',
       attributes: {
         rel: 'icon',
-        type: 'image/svg+xml',
-        href: '/img/favicon-white.svg',
+        type: 'image/png',
+        href: 'https://www.skunkworksacademy.com/images/favicon-search-dark.png',
         media: '(prefers-color-scheme: dark)',
       },
     },
@@ -48,8 +48,8 @@ const config = {
       tagName: 'link',
       attributes: {
         rel: 'shortcut icon',
-        type: 'image/svg+xml',
-        href: '/img/favicon-black.svg',
+        type: 'image/png',
+        href: 'https://www.skunkworksacademy.com/images/favicon-search.png',
       },
     },
     {
