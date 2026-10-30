@@ -14,6 +14,9 @@ const requiredFiles = [
   'static/img/favicon-black.svg',
   'static/img/favicon-white.svg',
   'static/site.webmanifest',
+  'static/favicon.ico',
+  'static/images/favicon-search.png',
+  'static/images/favicon-search-dark.png',
   'docusaurus.config.js',
   '.github/workflows/deploy-pages.yml',
 ];
@@ -32,8 +35,8 @@ if (errors.length === 0) {
 
   requireText('docusaurus.config.js', "const siteUrl = 'https://aacca.skunkworksacademy.com'", 'custom domain URL');
   requireText('docusaurus.config.js', "baseUrl: '/'", 'root base URL');
-  requireText('docusaurus.config.js', "href: '/img/favicon-black.svg'", 'light favicon link');
-  requireText('docusaurus.config.js', "href: '/img/favicon-white.svg'", 'dark favicon link');
+  requireText('docusaurus.config.js', "href: 'https://www.skunkworksacademy.com/images/favicon-search.png'", 'light favicon link');
+  requireText('docusaurus.config.js', "href: 'https://www.skunkworksacademy.com/images/favicon-search-dark.png'", 'dark favicon link');
   requireText('docusaurus.config.js', "media: '(prefers-color-scheme: light)'", 'light colour-scheme favicon');
   requireText('docusaurus.config.js', "media: '(prefers-color-scheme: dark)'", 'dark colour-scheme favicon');
   requireText('docusaurus.config.js', "srcDark: darkIcon", 'dark navigation logo');
